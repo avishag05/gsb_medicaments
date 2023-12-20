@@ -12,3 +12,4 @@ public class activity_detail extends AppCompatActivity {
         setContentView(R.layout.activity_detail);
     }
 }
+
