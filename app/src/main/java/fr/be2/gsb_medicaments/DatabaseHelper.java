@@ -25,7 +25,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final int DATABASE_VERSION = 2;
     private String DATABASE_PATH;
 
-    private static final String PREMIERE_VOIE = "Séléctionnez une voie d'administration";
+    private static final String PREMIERE_VOIE = "Choisir une voie d'administration";
     private static DatabaseHelper sInstance;
 
     public static synchronized DatabaseHelper getInstance(Context context) {
@@ -69,7 +69,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         List<String> voiesAdminList = new ArrayList<>();
 
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT DISTINCT Voies_dadministration FROM CIS_bdpm WHERE Voies_dadministration NOT LIKE '%;%' ORDER BY Voies_dadministration", null);
+        Cursor cursor = db.rawQuery("SELECT DISTINCT UPPER(Voies_dadministration) FROM CIS_bdpm WHERE Voies_dadministration NOT LIKE '%;%' ORDER BY Voies_dadministration", null);
         voiesAdminList.add(PREMIERE_VOIE);
         if (cursor.moveToFirst()) {
             do {
@@ -103,7 +103,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         String finSQL ="";
 
         if (!voiesAdmin.equals(PREMIERE_VOIE)){
-            finSQL ="AND  Voies_dadministration = ?";
+            finSQL ="AND  Voies_dadministration LIKE ?";
             selectionArgs.add(voiesAdmin);
         }
 
@@ -112,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Denomination_du_medicament LIKE ? AND " +
                 "Forme_pharmaceutique LIKE ? AND " +
                 "Titulaires LIKE ? AND " +
-                "Code_CIS IN (SELECT Code_CIS FROM CIS_COMPO_bdpm WHERE Designation_element LIKE ?) " +
+                "Code_CIS IN (SELECT Code_CIS FROM CIS_COMPO_bdpm WHERE Denomination_Substance LIKE ?) " +
                 finSQL;
 
         // Les valeurs à remplacer dans la requête
