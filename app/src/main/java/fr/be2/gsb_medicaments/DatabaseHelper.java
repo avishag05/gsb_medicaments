@@ -115,6 +115,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 "Code_CIS IN (SELECT Code_CIS FROM CIS_COMPO_bdpm WHERE Denomination_Substance LIKE ?) " +
                 finSQL;
 
+
         // Les valeurs à remplacer dans la requête
 
 
