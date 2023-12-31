@@ -16,6 +16,7 @@ private EditText CodeV ,myKey ;
 private Button btnValiderCodeV,btnValidercle ;
 LinearLayout layoutCle ;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_authentification);
