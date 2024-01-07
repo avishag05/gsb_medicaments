@@ -47,7 +47,7 @@
         android:id="@+id/btnSearch"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Search"/>
+        android:text="Rechercher"/>
 
     <!-- ListView to display the search results -->
     <ListView
