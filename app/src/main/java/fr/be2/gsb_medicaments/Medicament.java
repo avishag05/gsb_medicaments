@@ -5,6 +5,7 @@ public class Medicament {
     private String formePharmaceutique;
     private String voiesAdmin;
     private String titulaires;
+    private String StatutAdministratif;
 
     // Constructeur
 
@@ -52,4 +53,14 @@ public class Medicament {
     public void setTitulaires(String titulaires) {
         this.titulaires = titulaires;
     }
+
+    // Getter et Setter pour Statut_Administratif
+
+    public String getStatutAdministratif() {
+        return StatutAdministratif;
+    }
+
+    public void setStatutAdministratif(String Statut_administratif) {this.StatutAdministratif = Statut_administratif ;
+    }
+
 }

@@ -75,7 +75,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         voiesAdminList.add(PREMIERE_VOIE);
         if (cursor.moveToFirst()) {
             do {
-
                 String voieAdmin = cursor.getString(0).toString();
                 voiesAdminList.add(voieAdmin);
             } while (cursor.moveToNext());
@@ -134,6 +133,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String formePharmaceutiqueMedicament = cursor.getString(cursor.getColumnIndex("Forme_pharmaceutique"));
                 String voiesAdminMedicament = cursor.getString(cursor.getColumnIndex("Voies_dadministration"));
                 String titulairesMedicament = cursor.getString(cursor.getColumnIndex("Titulaires"));
+                String StatutAdministratifMedicament = cursor.getString(cursor.getColumnIndex("Statut_administratif_de_lAMM"));
 
                 // Créer un objet Medicament avec les valeurs récupérées
                 Medicament medicament = new Medicament();
@@ -142,6 +142,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 medicament.setFormePharmaceutique(formePharmaceutiqueMedicament);
                 medicament.setVoiesAdmin(voiesAdminMedicament);
                 medicament.setTitulaires(titulairesMedicament);
+                medicament.setStatutAdministratif(StatutAdministratifMedicament);
+
+
 
                 // Ajouter l'objet Medicament à la liste
                 medicamentList.add(medicament);
