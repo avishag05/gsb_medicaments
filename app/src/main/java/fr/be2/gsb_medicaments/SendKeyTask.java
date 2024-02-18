@@ -26,6 +26,7 @@ public class SendKeyTask extends AsyncTask<String, Void, String> {
 
     @Override
     protected String doInBackground(String... params) {
+
         String codeV = params[0];
         String secureKey = params[1];
         String token = params[2];
