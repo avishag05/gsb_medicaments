@@ -34,11 +34,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Clé secrète"/>
+
         <Button
             android:id="@+id/btnValiderCle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
+            android:onClick="boutton2"
             android:text="Valider"/>
+
     </LinearLayout>
+
+
 </LinearLayout>
