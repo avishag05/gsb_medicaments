@@ -36,6 +36,7 @@ LinearLayout layoutCle ;
         layoutCle.setVisibility(View.INVISIBLE);
     }
     public void  Affichelayout(View v) {
+
         layoutCle.setVisibility(View.VISIBLE);
         myrandomKey = genererChaineAleatoire(5);
         Log.d("APPLI", "myKey=" + myrandomKey);

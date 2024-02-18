@@ -29,6 +29,7 @@
         android:layout_height="wrap_content">
         <!-- EditText for entering the key recived by email -->
 
+
         <EditText
             android:id="@+id/myKey"
             android:layout_width="match_parent"

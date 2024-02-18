@@ -7,6 +7,7 @@
     android:padding="16dp"
     tools:context=".MainActivity">
 
+
     <!-- EditText for entering Denomination_du_medicament -->
     <EditText
         android:id="@+id/editTextDenomination"

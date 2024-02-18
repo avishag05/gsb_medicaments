@@ -96,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
         // Vérifiez si la vue est non nulle pour éviter les erreurs
         if (vueCourante != null) {
             // Masquez le clavier
+
             imm.hideSoftInputFromWindow(vueCourante.getWindowToken(), 0);
         }
     }
