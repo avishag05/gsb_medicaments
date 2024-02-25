@@ -135,6 +135,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String titulairesMedicament = cursor.getString(cursor.getColumnIndex("Titulaires"));
                 String StatutAdministratifMedicament = cursor.getString(cursor.getColumnIndex("Statut_administratif_de_lAMM"));
 
+
                 // Créer un objet Medicament avec les valeurs récupérées
                 Medicament medicament = new Medicament();
                 medicament.setCodeCIS(codeCIS);
@@ -143,6 +144,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 medicament.setVoiesAdmin(voiesAdminMedicament);
                 medicament.setTitulaires(titulairesMedicament);
                 medicament.setStatutAdministratif(StatutAdministratifMedicament);
+
 
 
 
