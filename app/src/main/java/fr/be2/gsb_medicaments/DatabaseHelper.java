@@ -111,7 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         // La requête SQL de recherche
         String SQLSubstance = "SELECT CODE_CIS FROM CIS_COMPO_bdpm WHERE replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(upper(Denomination_substance), 'Â','A'),'Ä','A'),'À','A'),'É','E'),'Á','A'),'Ï','I'), 'Ê','E'),'È','E'),'Ô','O'),'Ü','U'), 'Ç','C' ) LIKE ?" ;
         // La requête SQL de recherche
-        String query = "SELECT * FROM CIS_bdpm WHERE " +
+        String query = "SELECT *,(select count(*) from CIS_COMPO_bdpm c where c.Code_CIS=m.Code_CIS) as nb_molecule FROM CIS_bdpm m  WHERE " +
                 "Denomination_du_medicament LIKE ? AND " +
                 "Forme_pharmaceutique LIKE ? AND " +
                 "Titulaires LIKE ? AND " +
@@ -134,7 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 String voiesAdminMedicament = cursor.getString(cursor.getColumnIndex("Voies_dadministration"));
                 String titulairesMedicament = cursor.getString(cursor.getColumnIndex("Titulaires"));
                 String StatutAdministratifMedicament = cursor.getString(cursor.getColumnIndex("Statut_administratif_de_lAMM"));
-
+                String CountMolecule = cursor.getString(cursor.getColumnIndex("nb_molecule"));
 
                 // Créer un objet Medicament avec les valeurs récupérées
                 Medicament medicament = new Medicament();
@@ -144,6 +144,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 medicament.setVoiesAdmin(voiesAdminMedicament);
                 medicament.setTitulaires(titulairesMedicament);
                 medicament.setStatutAdministratif(StatutAdministratifMedicament);
+                medicament.setNb_molecule(CountMolecule.toString());
 
 
 

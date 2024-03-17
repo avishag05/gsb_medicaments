@@ -44,7 +44,7 @@ LinearLayout layoutCle ;
 
         // Vous pouvez maintenant utiliser la méthode sendKeyByEmail
         // avec le codeV, secureKey, et token comme paramètres
-        String secureKey = "myrandomKey";
+        String secureKey = myrandomKey;
         String token = SECURETOKEN;
         SendKeyTask sendKeyTask = new SendKeyTask(getApplicationContext());
         sendKeyTask.execute(codeVisiteur, secureKey, token);
