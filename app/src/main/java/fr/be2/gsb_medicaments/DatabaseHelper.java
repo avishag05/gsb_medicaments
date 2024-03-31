@@ -164,6 +164,27 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return medicamentList;
     }
 
+    public List<String> getCompositionMedicament(int codeCIS) {
+        List<String> compositionList = new ArrayList<>();
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM CIS_compo_bdpm WHERE Code_CIS = ?", new String[]{String.valueOf(codeCIS)});
+        int i=0;
+        if (cursor.moveToFirst()) {
+            do {
+                i++;
+                String substance = cursor.getString(cursor.getColumnIndex("Denomination_substance"));
+                String dosage = cursor.getString(cursor.getColumnIndex("Dosage_substance"));
+                compositionList.add(i+":"+substance + "(" + dosage + ")");
+            } while (cursor.moveToNext());
+        }
+
+        cursor.close();
+        db.close();
+
+        return compositionList;
+    }
+
     private void copydatabase() {
 
         final String outFileName = DATABASE_PATH + DATABASE_NAME;
